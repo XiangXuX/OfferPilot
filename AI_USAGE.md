@@ -1,6 +1,6 @@
 # AI usage and decision log
 
-This file records how OfferPilot was shaped and built. Each entry separates Sam's decisions from AI assistance and verification. GitHub becomes the authoritative copy when the repository is created.
+This file records how OfferPilot was shaped and built. Each entry separates Sam's decisions from AI assistance and verification. The GitHub repository is the authoritative copy.
 
 ## 2026-09-24 — Product goal and initial scope
 
@@ -77,3 +77,9 @@ This file records how OfferPilot was shaped and built. Each entry separates Sam'
 - **Sam confirmed:** Items 1–4 and 6–8 of the consolidated scope list. JD input is pasted text; item 5 must not imply uploading a JD PDF.
 - **AI changed:** Reworded the input contract in `docs/spec.md` to separate a pasted JD from the existing resume PDF, promoted the accepted defaults to confirmed rules, and left resume PDF extraction-error handling open rather than inferring approval.
 - **Verification still needed:** Decide the resume PDF failure path before its upload slice; provider, storage and Azure details remain implementation-stage choices. No code or repository commit has been made.
+
+## 2026-09-25 — Development learning notes
+
+- **Sam did:** Created Issue #1, installed .NET 10, generated the ASP.NET Core and Vite projects locally, confirmed the API health response directly and through Vite's proxy, and asked for a persistent explanation of synchronous/asynchronous JavaScript and earlier coding questions. React's in-page connection result is still awaiting confirmation.
+- **AI contributed:** Explained the API/React data flow, proposed the minimal health route, Vite proxy and React fetch example, and created `docs/learning-notes.md` in the GitHub repository from the conversation. The notes identify observed checks separately from pending checks.
+- **Next verification:** Sam reviews the explanation against his running code and confirms the React connected/unavailable states, then syncs the GitHub documentation commits to his local clone before his next code commit.
