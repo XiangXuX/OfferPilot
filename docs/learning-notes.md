@@ -2,7 +2,7 @@
 
 更新：2026-09-25（悉尼时间）
 
-这份笔记记录 Sam 在亲自编写 OfferPilot 时提出的问题。每次只记清楚一个概念、它在项目里的位置，以及已经实际验证的结果。新增问题继续按日期追加；没有验证的功能不写成已完成。
+这份笔记由 AI 根据 Sam 的实际提问起草，Sam 亲自编写 OfferPilot 的代码。每次只记清楚一个概念、它在项目里的位置，以及已经实际验证的结果。新增问题继续按日期追加；没有验证的功能不写成已完成。
 
 ## 同步与异步：先理解这四句话
 
@@ -34,7 +34,7 @@ async function checkHealth() {
 ### 后端与前端基线（2026-09-24）
 
 - **.NET、C#、ASP.NET Core 是什么？** C# 是语言，.NET 10 是构建和运行平台，ASP.NET Core 是编写 Web API 的框架。`dotnet new web` 生成了 `server/OfferPilot.Api` 骨架；`Program.cs` 注册路由；`.csproj` 写项目配置。
-- **`MapGet('/api/health', ...)` 做了什么？** 在后端注册 GET 路由；浏览器请求时返回 JSON `{"status":"ok"}`。直接访问后端端口 5080 已验证 API 可响应。
+- **`MapGet("/api/health", ...)` 做了什么？** 在后端注册 GET 路由；浏览器请求时返回 JSON `{"status":"ok"}`。直接访问后端端口 5080 已验证 API 可响应。
 - **`dotnet run` 为什么一直占着终端？** Web 服务器启动后持续监听请求；`Now listening` 是运行成功。`Ctrl+C` 才停止。
 - **React、Vite、TypeScript 各做什么？** React 构建页面组件，TypeScript帮助检查代码的类型，Vite提供本地开发服务器和构建工具。模板页面在 5173 已打开。模板示例图片、计数器和链接会从 `App.tsx` 移除。
 - **为什么 `npm run dev` 在仓库根目录报 `ENOENT`？** `package.json` 在 `client/`；先 `cd client` 再运行。命令通常要在所属项目目录执行。
