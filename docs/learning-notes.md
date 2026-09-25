@@ -23,6 +23,23 @@ async function checkHealth() {
 
 这里两次 `await` 分别等 HTTP 响应和解析响应正文；看起来顺序书写，但等待网络时不会把整个页面卡住。
 
+### 补问：异步是 1 → 3 的中间可以做 2 吗？（2026-09-25）
+
+可以这样记，但先给数字明确含义：**1 发起网络请求，2 做不依赖响应的工作，3 收到响应后处理结果**。实际日志往往是 1 → 2 → 3。2 和等待中的请求在时间上有重叠，不能保证 3 一定在任意一个“2”之后完成；若 2 必须用到请求结果，就得放在 `await` 后面。
+
+```ts
+async function checkHealth() {
+  console.log('1 发起请求')
+  const response = await fetch('/api/health')
+  console.log('3 处理响应', response.status)
+}
+
+void checkHealth()
+console.log('2 做别的事')
+```
+
+这段代码通常依次输出 1、2、3。**`await` 暂停的是 `checkHealth` 的后半段，不是页面，也不是所有 JavaScript**。OfferPilot 可以在等待 API 时继续显示 “Checking…”；收到响应后才显示 “Connected”。
+
 ## 已问过的问题
 
 ### Git 与项目起步（2026-09-24）
