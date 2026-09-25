@@ -61,8 +61,8 @@ console.log('2 做别的事')
 
 ## 目前验证到哪里
 
-- 已验证：GitHub 文档首个提交、Issue #1、.NET 10 SDK、后端健康接口、Vite 模板页、Vite 到后端的 `/api/health` 代理。
-- 待验证：替换 `client/src/App.tsx` 后页面显示 `connected`；停止后端并刷新后显示 `unavailable`；随后再做构建、CI、README 和提交。
+- 已验证（Sam 本机反馈）：GitHub 文档首个提交、Issue #1、.NET 10 SDK、后端健康接口、Vite 模板页、Vite 到后端的 `/api/health` 代理；React 页面显示 `API: connected`，停止后端并刷新后失败状态也正常显示。
+- 待验证：本地前后端构建、CI、README 和代码提交；AI 尚未看到 Sam 本地改动的源码与命令输出。
 
 ## 后续如何续记
 
